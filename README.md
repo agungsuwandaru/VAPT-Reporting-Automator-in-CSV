@@ -19,7 +19,7 @@ This script acts as a centralized controller. It reads "Master Standards" (Heade
 ### 1. The Control Panel (`Report List` Tab)
 The script relies on a master control tab (usually GID 0) named `Report List`. The script scans this list to determine which target spreadsheets to process. It looks for specific columns:
 * `Run` (Checkbox): Must be set to `TRUE` for the script to process the row.
-* `Update` (String): Must perfectly match the intended function (e.g., `"Kolom - Dashboard BGN"`).
+* `Update` (String): Must perfectly match the intended function (e.g., `"Kolom - Dashboard"`).
 * `Report Link` (URL): The full Google Sheets URL of the target report. The script automatically extracts the unique Document ID from this URL.
 * `Tab` (String): The specific sheet name inside the target document to update.
 
@@ -46,7 +46,6 @@ Once triggered, the script:
 These functions focus on injecting Google Sheets **Notes** (the small black triangle in the corner of a cell that shows a pop-up explanation) into the headers of target reports.
 * **`jalankanUpdateKolomDetailFindingVAPT()`**: Standardizes the column explanations for the *Detail Finding* tab (e.g., explaining what "Status", "Risk Level", or "CVSS" means).
 * **`jalankanUpdateKolomPoCVAPT()`**: Standardizes the column explanations for the *Proof of Concept* tab.
-* **`jalankanUpdateKolomDashboardBGN()`**: Standardizes the matrix explanations in the Dashboard tab. Features deep-scanning (up to 10 rows) to handle complex, heavily merged dashboard table headers.
 
 ### 🗃️ Content & Data Updaters (`Content`)
 These functions focus on syncing actual cell **Values/Content** (text, dropdown lists, matrices) rather than just Notes.
@@ -70,7 +69,7 @@ These functions focus on syncing actual cell **Values/Content** (text, dropdown 
 1. Wait for the `⚡ VAPT TOOLS` menu to appear in the top toolbar (next to Help).
 2. Go to your `Report List` tab.
 3. Check (`TRUE`) the box in the **Run** column for the documents you want to update.
-4. Ensure the **Update** column matches the operation you want to perform (e.g., `"Kolom - Dashboard BGN"`).
+4. Ensure the **Update** column matches the operation you want to perform (e.g., `"Kolom - Dashboard"`).
 5. Click **⚡ VAPT TOOLS** in the menu and select the corresponding action.
 6. The script will run in the background and show a popup alert with the success count once finished.
 
